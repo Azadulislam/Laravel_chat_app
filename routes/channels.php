@@ -3,12 +3,7 @@
 use App\Models\Conversation;
 use Illuminate\Support\Facades\Broadcast;
 
-Broadcast::channel('conversation.{conversationId}', function ($user, $conversationId) {
-    \Log::info("Broadcasting auth attempt", [
-        'user_id' => $user->id,
-        'conversation_id' => $conversationId
-    ]);
-    
+Broadcast::channel('conversation.{conversationId}', function ($user, $conversationId) {    
     $conversation = Conversation::find($conversationId);
     
     if (!$conversation) {

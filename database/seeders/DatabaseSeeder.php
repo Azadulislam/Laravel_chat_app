@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Super Admin',
             'username' => 'admin',
             'email' => 'admin@purespiceherbs.com',
+            'password' => 'password',
             'role' => 'super-admin',
         ]);
 
