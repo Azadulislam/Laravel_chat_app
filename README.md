@@ -43,6 +43,7 @@ This project is well suited for HR and internal operations teams to:
 - PHP 8.3
 - Laravel 13
 - MySQL-compatible database support
+- Redis for cache and session support
 - Vite for frontend assets
 - Tailwind CSS for styling
 - Reverb for real-time features
@@ -64,7 +65,7 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-4. Configure your database connection in the .env file.
+4. Configure your database connection and Redis cache settings in the .env file.
 
 5. Run database migrations:
 
@@ -104,6 +105,8 @@ Start real-time broadcasting support:
 ```bash
 php artisan reverb:start
 ```
+
+If you are using Redis for caching, make sure your Redis server is running and your .env file has the appropriate cache/Redis configuration.
 
 ## Project Structure
 
