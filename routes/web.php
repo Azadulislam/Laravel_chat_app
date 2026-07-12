@@ -27,7 +27,7 @@ Route::middleware(['auth', \App\Http\Middleware\EnsureOnboardingCompleted::class
     Route::prefix('chat')->name('chat.')->group(function () {
         Route::get('/', [ChatController::class, 'index'])->name('index');
         Route::get('/conversations/{conversation}', [ChatController::class, 'show'])->name('show');
-        Route::post('/conversations/{conversation}/messages', [ChatController::class, 'storeMessage'])->name('messages.store');
+        Route::post('/conversations/{conversation}/messages', [ChatController::class, 'storeMessage'])->name('messages.store')->middleware('throttle:chat-message');
         Route::post('/conversations/{conversation}/typing', [ChatController::class, 'typing'])->name('typing');
         Route::post('/conversations/{conversation}/read', [ChatController::class, 'markAsRead'])->name('read');
         Route::post('/conversations', [ChatController::class, 'startConversation'])->name('conversations.start');
